@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../build/ux-parser.js"></script>
+</head>
+<body>
+Check Console.
+<script>
+    var parsedExpression = ux.parser.parse('{"abc": Math.floor(1.53), "result": x.y.z}', false);
+    console.log('parsedExpression', parsedExpression({
+        x: {
+            y: {
+                z: 'zebra'
+            }
+        },
+        "Math": Math, "a": 1, "b": "hello", "c": function(val){return val}}));
+
+    var parsedExpression2 = ux.parser.parse('1 + a');
+    console.log('parsedExpression', parsedExpression2({a:2}));
+
+</script>
+</body>
+</html>
